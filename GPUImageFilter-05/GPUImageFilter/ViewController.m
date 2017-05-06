@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet GPUImageView *imageView;
 @property (strong, nonatomic) GPUImageVideoCamera *video;
 @property (strong, nonatomic) GPUImageMovieWriter *writer;
+@property (nonatomic, strong) NSURL *videoFile;
+@property (nonatomic, readonly, getter=isRecording) BOOL recording;
 @end
 
 @implementation ViewController
@@ -22,15 +24,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _recording = NO;
+    
     // 设置背景色
     [_imageView setBackgroundColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
 
     // 设置保存文件路径
-    NSURL *file = [NSURL fileURLWithPath:DOCUMENT(@"/1.mov")];
-    [[NSFileManager defaultManager] removeItemAtURL:file error:nil];
+    _videoFile = [NSURL fileURLWithPath:DOCUMENT(@"/1.mov")];
+    
+    // 删除文件
+    [[NSFileManager defaultManager] removeItemAtURL:_videoFile error:nil];
     
     // 设置GPUImageMovieWriter
-    _writer = [[GPUImageMovieWriter alloc] initWithMovieURL:file size:CGSizeMake(480, 640)];
+    _writer = [[GPUImageMovieWriter alloc] initWithMovieURL:_videoFile size:CGSizeMake(480, 640)];
     [_writer setHasAudioTrack:YES audioSettings:nil];
     
     // 设置GPUImageVideoCamera
@@ -51,8 +57,11 @@
 
 - (IBAction)startButtonTapped:(UIButton *)sender
 {
-    // 开始录制视频
-    [_writer startRecording];
+    if (!_recording) {
+        // 开始录制视频
+        [_writer startRecording];
+        _recording = YES;
+    }
 }
 
 - (IBAction)finishButtonTapped:(UIButton *)sender

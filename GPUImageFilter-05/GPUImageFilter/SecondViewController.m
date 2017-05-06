@@ -7,11 +7,13 @@
 //
 
 #import "SecondViewController.h"
+#import "ImageShowViewController.h"
 #import <GPUImage.h>
 
 @interface SecondViewController ()
 @property (weak, nonatomic) IBOutlet GPUImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (nonatomic, strong) GPUImageStillCamera *camera;
+@property (nonatomic, strong)  GPUImageFilter *filter;
 @end
 
 @implementation SecondViewController
@@ -19,17 +21,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 设置背景色
     [_imageView setBackgroundColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+
+    // 滤镜
+    _filter = [[GPUImageGrayscaleFilter alloc] init];
     
-    GPUImageUIElement *element = [[GPUImageUIElement alloc] initWithView:_bgView];
-    GPUImageHueFilter *filter = [[GPUImageHueFilter alloc] init];
-    [element addTarget:filter];
-    [filter addTarget:_imageView];
-    [filter useNextFrameForImageCapture];
+    // 初始化
+    _camera = [[GPUImageStillCamera alloc] initWithSessionPreset:AVCaptureSessionPresetPhoto cameraPosition:AVCaptureDevicePositionBack];
+    _camera.outputImageOrientation = UIInterfaceOrientationPortrait;
     
-    [element update];
+    [_camera addTarget:_filter];
+    [_filter addTarget:_imageView];
+    
+    // 开始运行
+    [_camera startCameraCapture];
 }
 
+- (IBAction)pictureButtonTapped:(UIButton *)sender
+{
+    if ([_camera isRunning]) {
+        [_camera capturePhotoAsImageProcessedUpToFilter:_filter withCompletionHandler:^(UIImage *processedImage, NSError *error) {
+            [_camera stopCameraCapture];
+            
+            ImageShowViewController *imageShowVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ImageShowViewController"];
+            imageShowVC.image = processedImage;
+            [self presentViewController:imageShowVC animated:YES completion:NULL];
+        }];
+    }else {
+        [_camera startCameraCapture];
+    }
+}
 
 
 @end

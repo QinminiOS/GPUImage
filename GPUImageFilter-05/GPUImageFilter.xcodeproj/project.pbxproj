@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0411D4A71EB9E14E00ABC019 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0411D4A61EB9E14E00ABC019 /* SecondViewController.m */; };
+		0415548B1EBC1933008D343A /* ImageShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0415548A1EBC1933008D343A /* ImageShowViewController.m */; };
+		0415548E1EBC7CDC008D343A /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0415548D1EBC7CDC008D343A /* ThirdViewController.m */; };
 		042EB18F1EBADE4900F9B2C3 /* GPUImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D70F931E45B4E600725C8C /* GPUImage.framework */; };
 		042EB1901EBADE4900F9B2C3 /* GPUImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 04D70F931E45B4E600725C8C /* GPUImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		04D70F591E45B4C400725C8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D70F581E45B4C400725C8C /* main.m */; };
@@ -19,6 +21,7 @@
 		04D70F721E45B4C500725C8C /* GPUImageFilterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D70F711E45B4C400725C8C /* GPUImageFilterTests.m */; };
 		04D70F7D1E45B4C500725C8C /* GPUImageFilterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D70F7C1E45B4C500725C8C /* GPUImageFilterUITests.m */; };
 		04D70F981E45B62000725C8C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04D70F971E45B62000725C8C /* 1.jpg */; };
+		B90937721EBC98010053EDFE /* 1.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B90937711EBC98010053EDFE /* 1.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,10 @@
 /* Begin PBXFileReference section */
 		0411D4A51EB9E14E00ABC019 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		0411D4A61EB9E14E00ABC019 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		041554891EBC1933008D343A /* ImageShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageShowViewController.h; sourceTree = "<group>"; };
+		0415548A1EBC1933008D343A /* ImageShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageShowViewController.m; sourceTree = "<group>"; };
+		0415548C1EBC7CDC008D343A /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		0415548D1EBC7CDC008D343A /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		04D70F541E45B4C400725C8C /* GPUImageFilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GPUImageFilter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D70F581E45B4C400725C8C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04D70F5A1E45B4C400725C8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +108,7 @@
 		04D70F7E1E45B4C500725C8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04D70F8A1E45B4E500725C8C /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
 		04D70F971E45B62000725C8C /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		B90937711EBC98010053EDFE /* 1.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1.mp4; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,9 +167,14 @@
 				04D70F5E1E45B4C400725C8C /* ViewController.m */,
 				0411D4A51EB9E14E00ABC019 /* SecondViewController.h */,
 				0411D4A61EB9E14E00ABC019 /* SecondViewController.m */,
+				041554891EBC1933008D343A /* ImageShowViewController.h */,
+				0415548A1EBC1933008D343A /* ImageShowViewController.m */,
+				0415548C1EBC7CDC008D343A /* ThirdViewController.h */,
+				0415548D1EBC7CDC008D343A /* ThirdViewController.m */,
 				04D70F601E45B4C400725C8C /* Main.storyboard */,
 				04D70F631E45B4C400725C8C /* Assets.xcassets */,
 				04D70F971E45B62000725C8C /* 1.jpg */,
+				B90937711EBC98010053EDFE /* 1.mp4 */,
 				04D70F651E45B4C400725C8C /* LaunchScreen.storyboard */,
 				04D70F681E45B4C400725C8C /* Info.plist */,
 				04D70F571E45B4C400725C8C /* Supporting Files */,
@@ -340,6 +353,7 @@
 				04D70F671E45B4C400725C8C /* LaunchScreen.storyboard in Resources */,
 				04D70F981E45B62000725C8C /* 1.jpg in Resources */,
 				04D70F641E45B4C400725C8C /* Assets.xcassets in Resources */,
+				B90937721EBC98010053EDFE /* 1.mp4 in Resources */,
 				04D70F621E45B4C400725C8C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,7 +381,9 @@
 			files = (
 				04D70F5F1E45B4C400725C8C /* ViewController.m in Sources */,
 				0411D4A71EB9E14E00ABC019 /* SecondViewController.m in Sources */,
+				0415548E1EBC7CDC008D343A /* ThirdViewController.m in Sources */,
 				04D70F5C1E45B4C400725C8C /* AppDelegate.m in Sources */,
+				0415548B1EBC1933008D343A /* ImageShowViewController.m in Sources */,
 				04D70F591E45B4C400725C8C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

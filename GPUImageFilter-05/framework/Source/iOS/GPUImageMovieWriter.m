@@ -70,6 +70,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
 
 - (id)initWithMovieURL:(NSURL *)newMovieURL size:(CGSize)newSize;
 {
+    // 调用其它初始化方法
     return [self initWithMovieURL:newMovieURL size:newSize fileType:AVFileTypeQuickTimeMovie outputSettings:nil];
 }
 
@@ -79,7 +80,8 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     {
 		return nil;
     }
-
+    
+    // 初始实例变量
     _shouldInvalidateAudioSampleWhenDone = NO;
     
     self.enabled = YES;
@@ -97,12 +99,14 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     previousAudioTime = kCMTimeNegativeInfinity;
     inputRotation = kGPUImageNoRotation;
     
+    // 初始上下文对象
     _movieWriterContext = [[GPUImageContext alloc] init];
     [_movieWriterContext useSharegroup:[[[GPUImageContext sharedImageProcessingContext] context] sharegroup]];
 
     runSynchronouslyOnContextQueue(_movieWriterContext, ^{
         [_movieWriterContext useAsCurrentContext];
         
+        // 初始化OpenGL程序
         if ([GPUImageContext supportsFastTextureUpload])
         {
             colorSwizzlingProgram = [_movieWriterContext programForVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImagePassthroughFragmentShaderString];
@@ -112,6 +116,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
             colorSwizzlingProgram = [_movieWriterContext programForVertexShaderString:kGPUImageVertexShaderString fragmentShaderString:kGPUImageColorSwizzlingFragmentShaderString];
         }
         
+        // 获取glsl中的相关变量
         if (!colorSwizzlingProgram.initialized)
         {
             [colorSwizzlingProgram addAttribute:@"position"];
@@ -170,7 +175,10 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     
     self.enabled = YES;
     NSError *error = nil;
+    // 初始化AVAssetWriter，传入文件路径和文件格式
     assetWriter = [[AVAssetWriter alloc] initWithURL:movieURL fileType:fileType error:&error];
+    
+    // 处理初始化失败回调
     if (error != nil)
     {
         NSLog(@"Error: %@", error);
@@ -190,7 +198,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     // Set this to make sure that a functional movie is produced, even if the recording is cut off mid-stream. Only the last second should be lost in that case.
     assetWriter.movieFragmentInterval = CMTimeMakeWithSeconds(1.0, 1000);
     
-    // use default output settings if none specified
+    // 设置视频的宽高，以及编码格式
     if (outputSettings == nil) 
     {
         NSMutableDictionary *settings = [[NSMutableDictionary alloc] init];
@@ -199,7 +207,7 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
         [settings setObject:[NSNumber numberWithInt:videoSize.height] forKey:AVVideoHeightKey];
         outputSettings = settings;
     }
-    // custom output settings specified
+    // 如果自己传入了相关设置，检查设置中是否有必要的参数
     else 
     {
 		__unused NSString *videoCodec = [outputSettings objectForKey:AVVideoCodecKey];
@@ -237,18 +245,21 @@ NSString *const kGPUImageColorSwizzlingFragmentShaderString = SHADER_STRING
     
     [outputSettings setObject:compressionProperties forKey:AVVideoCompressionPropertiesKey];
     */
-     
+    
+    // 创建视频的AVAssetWriterInput
     assetWriterVideoInput = [AVAssetWriterInput assetWriterInputWithMediaType:AVMediaTypeVideo outputSettings:outputSettings];
+    // 实时的数据处理，如果不设置可能有丢帧现象
     assetWriterVideoInput.expectsMediaDataInRealTime = _encodingLiveVideo;
     
     // You need to use BGRA for the video in order to get realtime encoding. I use a color-swizzling shader to line up glReadPixels' normal RGBA output with the movie input's BGRA.
+    // 设置输入到编码器的像素格式
     NSDictionary *sourcePixelBufferAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:kCVPixelFormatType_32BGRA], kCVPixelBufferPixelFormatTypeKey,
                                                            [NSNumber numberWithInt:videoSize.width], kCVPixelBufferWidthKey,
                                                            [NSNumber numberWithInt:videoSize.height], kCVPixelBufferHeightKey,
                                                            nil];
 //    NSDictionary *sourcePixelBufferAttributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithInt:kCVPixelFormatType_32ARGB], kCVPixelBufferPixelFormatTypeKey,
 //                                                           nil];
-        
+    // 创建AVAssetWriterInputPixelBufferAdaptor对象
     assetWriterPixelBufferInput = [AVAssetWriterInputPixelBufferAdaptor assetWriterInputPixelBufferAdaptorWithAssetWriterInput:assetWriterVideoInput sourcePixelBufferAttributes:sourcePixelBufferAttributesDictionary];
     
     [assetWriter addInput:assetWriterVideoInput];
