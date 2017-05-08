@@ -31,7 +31,7 @@
 #pragma mark - Events
 - (IBAction)startButtonTapped:(UIButton *)sender
 {
-    [self showPicture2];
+    [self showPicture];
 }
 
 - (IBAction)finishButtonTapped:(UIButton *)sender
@@ -40,45 +40,45 @@
 }
 
 #pragma mark - PrivateMethod
-- (void)showPicture1
-{
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"png"];
-    
-    // 读取png文件
-    pic_data pngData;
-    read_png_file([filePath UTF8String], &pngData);
-    
-    // 像素格式
-    GPUPixelFormat pixelFormat;
-    switch (pngData.flag) {
-        case PNG_HAVE_ALPHA:
-            pixelFormat = GPUPixelFormatRGBA;
-            break;
-            
-        case PNG_NO_ALPHA:
-            pixelFormat = GPUPixelFormatRGB;
-            break;
-        default:
-            pixelFormat = GPUPixelFormatRGB;
-            break;
-    }
-    
-    // 初始化GPUImageRawDataInput
-    _rawDataInput = [[GPUImageRawDataInput alloc] initWithBytes:pngData.rgba size:CGSizeMake(pngData.width, pngData.height) pixelFormat:pixelFormat];
-    
-    // 滤镜
-    GPUImageCannyEdgeDetectionFilter *filter = [[GPUImageCannyEdgeDetectionFilter alloc] init];
-    [_rawDataInput addTarget:filter];
-    [filter addTarget:_imageView];
-    
-    // 开始处理数据
-    [_rawDataInput processData];
-    
-    // 销毁png数据
-    free_png_data(&pngData);
-}
+//- (void)showPicture1
+//{
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"2" ofType:@"png"];
+//    
+//    // 读取png文件
+//    pic_data pngData;
+//    read_png_file([filePath UTF8String], &pngData);
+//    
+//    // 像素格式
+//    GPUPixelFormat pixelFormat;
+//    switch (pngData.flag) {
+//        case PNG_HAVE_ALPHA:
+//            pixelFormat = GPUPixelFormatRGBA;
+//            break;
+//            
+//        case PNG_NO_ALPHA:
+//            pixelFormat = GPUPixelFormatRGB;
+//            break;
+//        default:
+//            pixelFormat = GPUPixelFormatRGB;
+//            break;
+//    }
+//    
+//    // 初始化GPUImageRawDataInput
+//    _rawDataInput = [[GPUImageRawDataInput alloc] initWithBytes:pngData.rgba size:CGSizeMake(pngData.width, pngData.height) pixelFormat:pixelFormat];
+//    
+//    // 滤镜
+//    GPUImageCannyEdgeDetectionFilter *filter = [[GPUImageCannyEdgeDetectionFilter alloc] init];
+//    [_rawDataInput addTarget:filter];
+//    [filter addTarget:_imageView];
+//    
+//    // 开始处理数据
+//    [_rawDataInput processData];
+//    
+//    // 销毁png数据
+//    free_png_data(&pngData);
+//}
 
-- (void)showPicture2
+- (void)showPicture
 {
     // 加载纹理
     UIImage *image = [UIImage imageNamed:@"1.jpg"];
@@ -121,6 +121,7 @@
     
     // GPUImageRawDataOutput
     GPUImageRawDataOutput *rawDataOutput = [[GPUImageRawDataOutput alloc] initWithImageSize:CGSizeMake(width, height) resultsInBGRAFormat:NO];
+    [rawDataOutput lockFramebufferForReading];
     
     [_rawDataInput addTarget:filter];
     [filter addTarget:_imageView];
@@ -132,15 +133,16 @@
     // 生成png图片
     unsigned char *rawBytes = [rawDataOutput rawBytesForImage];
     pic_data pngData = {(int)width, (int)height, 8, PNG_HAVE_ALPHA, rawBytes};
-    write_png_file([DOCUMENT(@"3.png") UTF8String], &pngData);
+    write_png_file([DOCUMENT(@"raw_data_output.png") UTF8String], &pngData);
     
     // 清理
+    [rawDataOutput unlockFramebufferAfterReading];
     if (imageData) {
         free(imageData);
         image = NULL;
     }
     
-    NSLog(@"%@", DOCUMENT(@"3.png"));
+    NSLog(@"%@", DOCUMENT(@"raw_data_output.png"));
     
 }
 

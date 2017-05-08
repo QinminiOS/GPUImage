@@ -24,9 +24,7 @@ NSString *const kVertexShaderString = SHADER_STRING
      gl_Position = position;
      textureCoordinate = inputTextureCoordinate.xy;
  }
- );
-
-#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
+);
 
 NSString *const kFragmentShaderString = SHADER_STRING
 (
@@ -38,22 +36,7 @@ NSString *const kFragmentShaderString = SHADER_STRING
  {
      gl_FragColor = texture2D(inputImageTexture, textureCoordinate);
  }
- );
-
-#else
-
-NSString *const kGPUImagePassthroughFragmentShaderString = SHADER_STRING
-(
- varying vec2 textureCoordinate;
- 
- uniform sampler2D inputImageTexture;
- 
- void main()
- {
-     gl_FragColor = texture2D(inputImageTexture, textureCoordinate);
- }
- );
-#endif
+);
 
 @interface SecondViewController ()
 @property (weak, nonatomic) IBOutlet GPUImageView *imageView;
@@ -120,22 +103,18 @@ NSString *const kGPUImagePassthroughFragmentShaderString = SHADER_STRING
     
     [picture processImage];
     
-    [self generateImageWithTexure:output.texture andWidth:(int)width andheight:(int)height];
-}
-
-
-- (void)generateImageWithTexure:(GLuint)texture andWidth:(int)width andheight:(int)height
-{
+    // 生成图片
     runAsynchronouslyOnContextQueue([GPUImageContext sharedImageProcessingContext], ^{
         // 设置程序
         GLProgram *progam = [[GPUImageContext sharedImageProcessingContext] programForVertexShaderString:kVertexShaderString fragmentShaderString:kFragmentShaderString];
         [progam addAttribute:@"position"];
         [progam addAttribute:@"inputTextureCoordinate"];
         
+        // 激活程序
         [GPUImageContext setActiveShaderProgram:progam];
         [GPUImageContext useImageProcessingContext];
         
-        // GPUImageFramebuffer lock
+        // GPUImageFramebuffer
         GPUImageFramebuffer *frameBuffer = [[GPUImageContext sharedFramebufferCache] fetchFramebufferForSize:CGSizeMake(width, height) onlyTexture:NO];
         [frameBuffer lock];
         
@@ -158,7 +137,7 @@ NSString *const kGPUImagePassthroughFragmentShaderString = SHADER_STRING
         glViewport(0, 0, (GLsizei)width, (GLsizei)height);
         
         glActiveTexture(GL_TEXTURE2);
-        glBindTexture(GL_TEXTURE_2D, texture);
+        glBindTexture(GL_TEXTURE_2D, output.texture);
         
         glUniform1i([progam uniformIndex:@"inputImageTexture"], 2);
         
@@ -169,10 +148,13 @@ NSString *const kGPUImagePassthroughFragmentShaderString = SHADER_STRING
         
         CGImageRef outImage = [frameBuffer newCGImageFromFramebufferContents];
         NSData *pngData = UIImagePNGRepresentation([UIImage imageWithCGImage:outImage]);
-        [pngData writeToFile:DOCUMENT(@"4.png") atomically:YES];
+        [pngData writeToFile:DOCUMENT(@"texture_output.png") atomically:YES];
+        
+        NSLog(@"%@", DOCUMENT(@"texture_output.png"));
         
         // unlock
         [frameBuffer unlock];
+        [output doneWithTexture];
     });
 }
 
