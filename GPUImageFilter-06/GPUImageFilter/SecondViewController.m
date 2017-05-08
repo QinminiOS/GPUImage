@@ -104,7 +104,7 @@ NSString *const kFragmentShaderString = SHADER_STRING
     [picture processImage];
     
     // 生成图片
-    runAsynchronouslyOnContextQueue([GPUImageContext sharedImageProcessingContext], ^{
+    runSynchronouslyOnContextQueue([GPUImageContext sharedImageProcessingContext], ^{
         // 设置程序
         GLProgram *progam = [[GPUImageContext sharedImageProcessingContext] programForVertexShaderString:kVertexShaderString fragmentShaderString:kFragmentShaderString];
         [progam addAttribute:@"position"];
