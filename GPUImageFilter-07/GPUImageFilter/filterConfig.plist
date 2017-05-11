@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Filters</key>
+	<array>
+
+		<dict>
+			<key>FilterName</key>
+			<string>GPUImageGammaFilter</string>
+			<key>Attributes</key>
+			<dict>
+				<key>setGamma:</key>
+				<string>float(1.0)</string>
+			</dict>
+		</dict>
+
+
+		<dict>
+			<key>FilterName</key>
+			<string>GPUImageBrightnessFilter</string>
+			<key>Attributes</key>
+			<dict>
+				<key>setBrightness:</key>
+				<string>float(0.2)</string>
+			</dict>
+		</dict>
+
+<!--		<dict>-->
+<!--			<key>FilterName</key>-->
+<!--			<string>GPUImageLevelsFilter</string>-->
+<!--			<key>Attributes</key>-->
+<!--			<dict>-->
+<!--				<key>setMin:gamma:max:</key>-->
+<!--				<array>-->
+<!--					<string>float(0.0)</string>-->
+<!--					<string>float(1.0)</string>-->
+<!--					<string>float(1.0)</string>-->
+<!--				</array>-->
+<!--			</dict>-->
+<!--		</dict>-->
+
+		<dict>
+			<key>FilterName</key>
+			<string>GPUImageExposureFilter</string>
+			<key>Attributes</key>
+			<dict>
+				<key>setExposure:</key>
+				<string>float(1.0)</string>
+			</dict>
+		</dict>
+
+<!--		<dict>-->
+<!--			<key>FilterName</key>-->
+<!--			<string>GPUImagePerlinNoiseFilter</string>-->
+<!--			<key>Attributes</key>-->
+<!--			<dict>-->
+<!--			</dict>-->
+<!--		</dict>-->
+
+	</array>
+</dict>
+</plist>
