@@ -30,9 +30,20 @@
                                             <constraint firstAttribute="width" constant="115" id="83z-sa-7OQ"/>
                                             <constraint firstAttribute="height" constant="30" id="sX4-C5-XKp"/>
                                         </constraints>
-                                        <state key="normal" title="开始滤镜"/>
+                                        <state key="normal" title="滤镜1"/>
                                         <connections>
                                             <action selector="startButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zvw-Vo-MfY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1WL-Bo-dhb">
+                                        <rect key="frame" x="150" y="693" width="115" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="115" id="aUx-R8-5MW"/>
+                                            <constraint firstAttribute="height" constant="30" id="ue8-jk-aYI"/>
+                                        </constraints>
+                                        <state key="normal" title="滤镜2"/>
+                                        <connections>
+                                            <action selector="filterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0fH-N7-hTc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -40,6 +51,8 @@
                                 <constraints>
                                     <constraint firstItem="PXL-dy-F9R" firstAttribute="centerX" secondItem="cad-o5-we2" secondAttribute="centerX" constant="0.5" id="VvH-eo-5Hv"/>
                                     <constraint firstAttribute="bottom" secondItem="PXL-dy-F9R" secondAttribute="bottom" constant="51" id="cE6-2b-XEy"/>
+                                    <constraint firstItem="1WL-Bo-dhb" firstAttribute="top" secondItem="PXL-dy-F9R" secondAttribute="bottom" constant="8" symbolic="YES" id="cgX-cW-Vvt"/>
+                                    <constraint firstItem="1WL-Bo-dhb" firstAttribute="leading" secondItem="PXL-dy-F9R" secondAttribute="leading" id="sCX-sh-uPx"/>
                                 </constraints>
                             </view>
                         </subviews>

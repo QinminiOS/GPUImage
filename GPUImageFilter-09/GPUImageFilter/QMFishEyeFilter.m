@@ -7,6 +7,7 @@
 //
 
 #import "QMFishEyeFilter.h"
+#import "GLMath.h"
 
 
 NSString *const kQMFishEyeFilterFragmentShaderString = SHADER_STRING

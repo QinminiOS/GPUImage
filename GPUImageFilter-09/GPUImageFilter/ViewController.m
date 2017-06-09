@@ -7,10 +7,10 @@
 //
 
 #import "ViewController.h"
-#import "PngUtil.h"
 #import "QMImageHelper.h"
 #import <GPUImage.h>
 #import "QMFishEyeFilter.h"
+#import "QM3DLightFilter.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet GPUImageView *imageView;
@@ -24,6 +24,7 @@
     
     // 设置背景色
     [_imageView setBackgroundColorRed:1.0 green:1.0 blue:1.0 alpha:1.0];
+
 }
 
 #pragma mark - Events
@@ -36,7 +37,20 @@
     
     [picture addTarget:filter];
     [filter addTarget:_imageView];
+    
+    [picture processImage];
+}
 
+- (IBAction)filterButtonTapped:(UIButton *)sender
+{
+    // 加载图片
+    GPUImagePicture *picture = [[GPUImagePicture alloc] initWithImage:[UIImage imageNamed:@"3.jpg"]];
+    
+    QM3DLightFilter *filter = [[QM3DLightFilter alloc] init];
+    
+    [picture addTarget:filter];
+    [filter addTarget:_imageView];
+    
     [picture processImage];
 }
 

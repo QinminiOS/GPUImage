@@ -17,14 +17,22 @@
 		04D70F671E45B4C400725C8C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04D70F651E45B4C400725C8C /* LaunchScreen.storyboard */; };
 		04D70F721E45B4C500725C8C /* GPUImageFilterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D70F711E45B4C400725C8C /* GPUImageFilterTests.m */; };
 		04D70F7D1E45B4C500725C8C /* GPUImageFilterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D70F7C1E45B4C500725C8C /* GPUImageFilterUITests.m */; };
-		04D70F981E45B62000725C8C /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04D70F971E45B62000725C8C /* 1.jpg */; };
 		B90BA1831EE977180092C575 /* QMFishEyeFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = B90BA1821EE977180092C575 /* QMFishEyeFilter.m */; };
-		B91FCB991EEA54370082188C /* flower.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B91FCB981EEA54360082188C /* flower.jpg */; };
-		B9A5C0461EBF3A280001ED4D /* libpng.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A5C0431EBF3A280001ED4D /* libpng.a */; };
-		B9A5C0471EBF3A280001ED4D /* PngUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = B9A5C0441EBF3A280001ED4D /* PngUtil.c */; };
+		B90BA1981EE985A00092C575 /* GLMath.c in Sources */ = {isa = PBXBuildFile; fileRef = B90BA1861EE985A00092C575 /* GLMath.c */; };
+		B90BA1991EE985A00092C575 /* GLMathBezierCurve.c in Sources */ = {isa = PBXBuildFile; fileRef = B90BA1881EE985A00092C575 /* GLMathBezierCurve.c */; };
+		B90BA19A1EE985A00092C575 /* GLMathMatrix.c in Sources */ = {isa = PBXBuildFile; fileRef = B90BA18A1EE985A00092C575 /* GLMathMatrix.c */; };
+		B90BA19B1EE985A00092C575 /* GLMathMatrixStack.c in Sources */ = {isa = PBXBuildFile; fileRef = B90BA18C1EE985A00092C575 /* GLMathMatrixStack.c */; };
+		B90BA19C1EE985A00092C575 /* GLMathQuaternion.c in Sources */ = {isa = PBXBuildFile; fileRef = B90BA18E1EE985A00092C575 /* GLMathQuaternion.c */; };
+		B90BA19D1EE985A00092C575 /* GLMathTransforms.c in Sources */ = {isa = PBXBuildFile; fileRef = B90BA1901EE985A00092C575 /* GLMathTransforms.c */; };
+		B90BA19E1EE985A00092C575 /* GLMathUtilities.c in Sources */ = {isa = PBXBuildFile; fileRef = B90BA1931EE985A00092C575 /* GLMathUtilities.c */; };
+		B90BA19F1EE985A00092C575 /* GLMathUtilitiesInline.c in Sources */ = {isa = PBXBuildFile; fileRef = B90BA1951EE985A00092C575 /* GLMathUtilitiesInline.c */; };
+		B90BA1A01EE985A00092C575 /* GLMathVector.c in Sources */ = {isa = PBXBuildFile; fileRef = B90BA1961EE985A00092C575 /* GLMathVector.c */; };
+		B90BA1A51EEA27140092C575 /* QM3DLightFilter.mm in Sources */ = {isa = PBXBuildFile; fileRef = B90BA1A41EEA27140092C575 /* QM3DLightFilter.mm */; };
+		B91FCBA71EEA7FEF0082188C /* TinyOBJModel.mm in Sources */ = {isa = PBXBuildFile; fileRef = B91FCBA61EEA7FEF0082188C /* TinyOBJModel.mm */; };
+		B91FCBAB1EEA83830082188C /* tiny_obj_loader.mm in Sources */ = {isa = PBXBuildFile; fileRef = B91FCBAA1EEA83830082188C /* tiny_obj_loader.mm */; };
+		B91FCBAD1EEA84A80082188C /* Sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = B91FCBAC1EEA84A80082188C /* Sphere.obj */; };
 		B9A5C04A1EBF3AB00001ED4D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A5C0491EBF3AB00001ED4D /* libz.tbd */; };
 		B9A5C04D1EBF3BDE0001ED4D /* QMImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B9A5C04C1EBF3BDE0001ED4D /* QMImageHelper.m */; };
-		B9A5C0541EBF4D570001ED4D /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9A5C0531EBF4D570001ED4D /* 2.jpg */; };
 		B9A5C0561EBF5D720001ED4D /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B9A5C0551EBF5D720001ED4D /* 3.jpg */; };
 /* End PBXBuildFile section */
 
@@ -105,20 +113,36 @@
 		04D70F7C1E45B4C500725C8C /* GPUImageFilterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPUImageFilterUITests.m; sourceTree = "<group>"; };
 		04D70F7E1E45B4C500725C8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04D70F8A1E45B4E500725C8C /* GPUImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GPUImage.xcodeproj; path = framework/GPUImage.xcodeproj; sourceTree = "<group>"; };
-		04D70F971E45B62000725C8C /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		B90BA1811EE977180092C575 /* QMFishEyeFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMFishEyeFilter.h; sourceTree = "<group>"; };
 		B90BA1821EE977180092C575 /* QMFishEyeFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMFishEyeFilter.m; sourceTree = "<group>"; };
-		B91FCB981EEA54360082188C /* flower.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flower.jpg; sourceTree = "<group>"; };
-		B9A5C03E1EBF3A280001ED4D /* png.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = png.h; sourceTree = "<group>"; };
-		B9A5C03F1EBF3A280001ED4D /* pngconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pngconf.h; sourceTree = "<group>"; };
-		B9A5C0401EBF3A280001ED4D /* pnglibconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pnglibconf.h; sourceTree = "<group>"; };
-		B9A5C0431EBF3A280001ED4D /* libpng.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpng.a; sourceTree = "<group>"; };
-		B9A5C0441EBF3A280001ED4D /* PngUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = PngUtil.c; sourceTree = "<group>"; };
-		B9A5C0451EBF3A280001ED4D /* PngUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PngUtil.h; sourceTree = "<group>"; };
+		B90BA1861EE985A00092C575 /* GLMath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLMath.c; sourceTree = "<group>"; };
+		B90BA1871EE985A00092C575 /* GLMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMath.h; sourceTree = "<group>"; };
+		B90BA1881EE985A00092C575 /* GLMathBezierCurve.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLMathBezierCurve.c; sourceTree = "<group>"; };
+		B90BA1891EE985A00092C575 /* GLMathBezierCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMathBezierCurve.h; sourceTree = "<group>"; };
+		B90BA18A1EE985A00092C575 /* GLMathMatrix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLMathMatrix.c; sourceTree = "<group>"; };
+		B90BA18B1EE985A00092C575 /* GLMathMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMathMatrix.h; sourceTree = "<group>"; };
+		B90BA18C1EE985A00092C575 /* GLMathMatrixStack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLMathMatrixStack.c; sourceTree = "<group>"; };
+		B90BA18D1EE985A00092C575 /* GLMathMatrixStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMathMatrixStack.h; sourceTree = "<group>"; };
+		B90BA18E1EE985A00092C575 /* GLMathQuaternion.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLMathQuaternion.c; sourceTree = "<group>"; };
+		B90BA18F1EE985A00092C575 /* GLMathQuaternion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMathQuaternion.h; sourceTree = "<group>"; };
+		B90BA1901EE985A00092C575 /* GLMathTransforms.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLMathTransforms.c; sourceTree = "<group>"; };
+		B90BA1911EE985A00092C575 /* GLMathTransforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMathTransforms.h; sourceTree = "<group>"; };
+		B90BA1921EE985A00092C575 /* GLMathTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMathTypes.h; sourceTree = "<group>"; };
+		B90BA1931EE985A00092C575 /* GLMathUtilities.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLMathUtilities.c; sourceTree = "<group>"; };
+		B90BA1941EE985A00092C575 /* GLMathUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMathUtilities.h; sourceTree = "<group>"; };
+		B90BA1951EE985A00092C575 /* GLMathUtilitiesInline.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLMathUtilitiesInline.c; sourceTree = "<group>"; };
+		B90BA1961EE985A00092C575 /* GLMathVector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = GLMathVector.c; sourceTree = "<group>"; };
+		B90BA1971EE985A00092C575 /* GLMathVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMathVector.h; sourceTree = "<group>"; };
+		B90BA1A31EEA27140092C575 /* QM3DLightFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QM3DLightFilter.h; sourceTree = "<group>"; };
+		B90BA1A41EEA27140092C575 /* QM3DLightFilter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = QM3DLightFilter.mm; sourceTree = "<group>"; };
+		B91FCBA41EEA7FEF0082188C /* tiny_obj_loader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tiny_obj_loader.h; sourceTree = "<group>"; };
+		B91FCBA51EEA7FEF0082188C /* TinyOBJModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TinyOBJModel.h; sourceTree = "<group>"; };
+		B91FCBA61EEA7FEF0082188C /* TinyOBJModel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TinyOBJModel.mm; sourceTree = "<group>"; };
+		B91FCBAA1EEA83830082188C /* tiny_obj_loader.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = tiny_obj_loader.mm; sourceTree = "<group>"; };
+		B91FCBAC1EEA84A80082188C /* Sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Sphere.obj; sourceTree = "<group>"; };
 		B9A5C0491EBF3AB00001ED4D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		B9A5C04B1EBF3BDE0001ED4D /* QMImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMImageHelper.h; sourceTree = "<group>"; };
 		B9A5C04C1EBF3BDE0001ED4D /* QMImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMImageHelper.m; sourceTree = "<group>"; };
-		B9A5C0531EBF4D570001ED4D /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		B9A5C0551EBF5D720001ED4D /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,7 +153,6 @@
 			files = (
 				B9A5C04A1EBF3AB00001ED4D /* libz.tbd in Frameworks */,
 				042EB18F1EBADE4900F9B2C3 /* GPUImage.framework in Frameworks */,
-				B9A5C0461EBF3A280001ED4D /* libpng.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +198,7 @@
 		04D70F561E45B4C400725C8C /* GPUImageFilter */ = {
 			isa = PBXGroup;
 			children = (
+				B90BA1851EE985A00092C575 /* Math */,
 				B9A5C03A1EBF3A280001ED4D /* Utils */,
 				04D70F5A1E45B4C400725C8C /* AppDelegate.h */,
 				04D70F5B1E45B4C400725C8C /* AppDelegate.m */,
@@ -182,6 +206,8 @@
 				04D70F5E1E45B4C400725C8C /* ViewController.m */,
 				B90BA1811EE977180092C575 /* QMFishEyeFilter.h */,
 				B90BA1821EE977180092C575 /* QMFishEyeFilter.m */,
+				B90BA1A31EEA27140092C575 /* QM3DLightFilter.h */,
+				B90BA1A41EEA27140092C575 /* QM3DLightFilter.mm */,
 				04D70F601E45B4C400725C8C /* Main.storyboard */,
 				04D70F631E45B4C400725C8C /* Assets.xcassets */,
 				04D70F651E45B4C400725C8C /* LaunchScreen.storyboard */,
@@ -194,9 +220,7 @@
 		04D70F571E45B4C400725C8C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				04D70F971E45B62000725C8C /* 1.jpg */,
-				B91FCB981EEA54360082188C /* flower.jpg */,
-				B9A5C0531EBF4D570001ED4D /* 2.jpg */,
+				B91FCBAC1EEA84A80082188C /* Sphere.obj */,
 				B9A5C0551EBF5D720001ED4D /* 3.jpg */,
 				04D70F581E45B4C400725C8C /* main.m */,
 			);
@@ -230,59 +254,42 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B90BA1851EE985A00092C575 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				B90BA1861EE985A00092C575 /* GLMath.c */,
+				B90BA1871EE985A00092C575 /* GLMath.h */,
+				B90BA1881EE985A00092C575 /* GLMathBezierCurve.c */,
+				B90BA1891EE985A00092C575 /* GLMathBezierCurve.h */,
+				B90BA18A1EE985A00092C575 /* GLMathMatrix.c */,
+				B90BA18B1EE985A00092C575 /* GLMathMatrix.h */,
+				B90BA18C1EE985A00092C575 /* GLMathMatrixStack.c */,
+				B90BA18D1EE985A00092C575 /* GLMathMatrixStack.h */,
+				B90BA18E1EE985A00092C575 /* GLMathQuaternion.c */,
+				B90BA18F1EE985A00092C575 /* GLMathQuaternion.h */,
+				B90BA1901EE985A00092C575 /* GLMathTransforms.c */,
+				B90BA1911EE985A00092C575 /* GLMathTransforms.h */,
+				B90BA1921EE985A00092C575 /* GLMathTypes.h */,
+				B90BA1931EE985A00092C575 /* GLMathUtilities.c */,
+				B90BA1941EE985A00092C575 /* GLMathUtilities.h */,
+				B90BA1951EE985A00092C575 /* GLMathUtilitiesInline.c */,
+				B90BA1961EE985A00092C575 /* GLMathVector.c */,
+				B90BA1971EE985A00092C575 /* GLMathVector.h */,
+			);
+			path = Math;
+			sourceTree = "<group>";
+		};
 		B9A5C03A1EBF3A280001ED4D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				B9A5C03B1EBF3A280001ED4D /* png */,
-				B9A5C0451EBF3A280001ED4D /* PngUtil.h */,
-				B9A5C0441EBF3A280001ED4D /* PngUtil.c */,
+				B91FCBA41EEA7FEF0082188C /* tiny_obj_loader.h */,
+				B91FCBAA1EEA83830082188C /* tiny_obj_loader.mm */,
+				B91FCBA51EEA7FEF0082188C /* TinyOBJModel.h */,
+				B91FCBA61EEA7FEF0082188C /* TinyOBJModel.mm */,
 				B9A5C04B1EBF3BDE0001ED4D /* QMImageHelper.h */,
 				B9A5C04C1EBF3BDE0001ED4D /* QMImageHelper.m */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		B9A5C03B1EBF3A280001ED4D /* png */ = {
-			isa = PBXGroup;
-			children = (
-				B9A5C03C1EBF3A280001ED4D /* include */,
-				B9A5C0411EBF3A280001ED4D /* prebuilt */,
-			);
-			path = png;
-			sourceTree = "<group>";
-		};
-		B9A5C03C1EBF3A280001ED4D /* include */ = {
-			isa = PBXGroup;
-			children = (
-				B9A5C03D1EBF3A280001ED4D /* ios */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		B9A5C03D1EBF3A280001ED4D /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				B9A5C03E1EBF3A280001ED4D /* png.h */,
-				B9A5C03F1EBF3A280001ED4D /* pngconf.h */,
-				B9A5C0401EBF3A280001ED4D /* pnglibconf.h */,
-			);
-			path = ios;
-			sourceTree = "<group>";
-		};
-		B9A5C0411EBF3A280001ED4D /* prebuilt */ = {
-			isa = PBXGroup;
-			children = (
-				B9A5C0421EBF3A280001ED4D /* ios */,
-			);
-			path = prebuilt;
-			sourceTree = "<group>";
-		};
-		B9A5C0421EBF3A280001ED4D /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				B9A5C0431EBF3A280001ED4D /* libpng.a */,
-			);
-			path = ios;
 			sourceTree = "<group>";
 		};
 		B9A5C0481EBF3AB00001ED4D /* Frameworks */ = {
@@ -426,10 +433,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9A5C0541EBF4D570001ED4D /* 2.jpg in Resources */,
 				04D70F671E45B4C400725C8C /* LaunchScreen.storyboard in Resources */,
-				04D70F981E45B62000725C8C /* 1.jpg in Resources */,
-				B91FCB991EEA54370082188C /* flower.jpg in Resources */,
+				B91FCBAD1EEA84A80082188C /* Sphere.obj in Resources */,
 				B9A5C0561EBF5D720001ED4D /* 3.jpg in Resources */,
 				04D70F641E45B4C400725C8C /* Assets.xcassets in Resources */,
 				04D70F621E45B4C400725C8C /* Main.storyboard in Resources */,
@@ -457,12 +462,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B90BA19A1EE985A00092C575 /* GLMathMatrix.c in Sources */,
+				B91FCBA71EEA7FEF0082188C /* TinyOBJModel.mm in Sources */,
 				04D70F5F1E45B4C400725C8C /* ViewController.m in Sources */,
+				B90BA1A51EEA27140092C575 /* QM3DLightFilter.mm in Sources */,
+				B90BA19C1EE985A00092C575 /* GLMathQuaternion.c in Sources */,
+				B90BA19B1EE985A00092C575 /* GLMathMatrixStack.c in Sources */,
 				04D70F5C1E45B4C400725C8C /* AppDelegate.m in Sources */,
-				B9A5C0471EBF3A280001ED4D /* PngUtil.c in Sources */,
+				B90BA1981EE985A00092C575 /* GLMath.c in Sources */,
+				B90BA1A01EE985A00092C575 /* GLMathVector.c in Sources */,
+				B90BA19D1EE985A00092C575 /* GLMathTransforms.c in Sources */,
+				B90BA19F1EE985A00092C575 /* GLMathUtilitiesInline.c in Sources */,
 				B90BA1831EE977180092C575 /* QMFishEyeFilter.m in Sources */,
 				04D70F591E45B4C400725C8C /* main.m in Sources */,
 				B9A5C04D1EBF3BDE0001ED4D /* QMImageHelper.m in Sources */,
+				B90BA19E1EE985A00092C575 /* GLMathUtilities.c in Sources */,
+				B91FCBAB1EEA83830082188C /* tiny_obj_loader.mm in Sources */,
+				B90BA1991EE985A00092C575 /* GLMathBezierCurve.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,7 +634,7 @@
 		04D70F821E45B4C500725C8C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMPRESS_PNG_FILES = YES;
 				DEVELOPMENT_TEAM = NFTVSJ4FK7;
@@ -626,15 +642,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/framework/Source/iOS",
 					"$(SRCROOT)/framework/Source",
-					"$(PROJECT_DIR)/GPUImageFilter/Utils/png/include/ios",
 				);
 				INFOPLIST_FILE = GPUImageFilter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/GPUImageFilter/Utils/png/prebuilt/ios",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shanhujiang.GPUImageFilter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_PNG_TEXT = YES;
@@ -644,7 +656,7 @@
 		04D70F831E45B4C500725C8C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMPRESS_PNG_FILES = YES;
 				DEVELOPMENT_TEAM = NFTVSJ4FK7;
@@ -652,15 +664,11 @@
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/framework/Source/iOS",
 					"$(SRCROOT)/framework/Source",
-					"$(PROJECT_DIR)/GPUImageFilter/Utils/png/include/ios",
 				);
 				INFOPLIST_FILE = GPUImageFilter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/GPUImageFilter/Utils/png/prebuilt/ios",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shanhujiang.GPUImageFilter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_PNG_TEXT = YES;
